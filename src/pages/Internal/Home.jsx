@@ -24,7 +24,7 @@ const Home = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
 
     return (
         <>
-            <TopComponent hasMenu={true} hasImage={true} title={`Tarefas`} subtitle={'Sua lista de tarefas...'}/>
+            <TopComponent hasMenu={false} hasImage={false} title={`Tarefas`} subtitle={'Sua lista de tarefas...'}/>
             <div style={{ maxHeight: '70vh', overflowY: 'scroll', padding: '16px' }}>
                 <ul style={{ listStyleType: 'none', padding: 0 }}>
                     {tasks.map((task, index) => (

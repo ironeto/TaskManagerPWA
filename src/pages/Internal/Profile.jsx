@@ -7,6 +7,7 @@ import { Button, InputAdornment } from "@mui/material";
 import { AccountCircleOutlined, CameraAlt } from "@material-ui/icons";
 import Webcam from 'react-webcam';
 import { set } from "firebase/database";
+import { TopComponent } from '../../components';
 
 const Profile = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
     const navigate = useNavigate();
@@ -83,12 +84,12 @@ const Profile = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
                  : null
             }
             
-            <TopMenuComponent hasMenu={true} hasArrowBack={false} hasImage={true}/>
+            <TopComponent hasMenu={false} hasArrowBack={false} hasImage={false} title={`Perfil`} subtitle={'Complete seu perfil...'}/>
             <StackComponent justifyContent="center" alignItems="center" style={{
                 position: 'relative'
             }}>
                 <AvatarComponent 
-                    sx={{ width: '250px', height: '250px', mt: 4 }} 
+                    sx={{ width: '250px', height: '250px', mt: 3 }} 
                     src={photoURL ? photoURL : profile} 
                     alt={'Profile'}/>
                 <FabComponent
@@ -103,7 +104,7 @@ const Profile = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
 
             <BoxComponent
                 component="div"
-                sx={{ mt: 3, mb:1, pl: 4, pr: 4, marginTop: 16 }}
+                sx={{ mt: 3, mb:1, pl: 4, pr: 4, marginTop: 10 }}
                 noValidate={true}
                 autoComplete={"off"}
             >
@@ -122,7 +123,7 @@ const Profile = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
 
             <BoxComponent
                 component="div"
-                sx={{ mt: 3, mb:1, pl: 4, pr: 4 }}
+                sx={{ mt: 2, mb:1, pl: 4, pr: 4 }}
                 noValidate={true}
                 autoComplete={"off"}
             >
@@ -141,7 +142,7 @@ const Profile = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
 
             <BoxComponent
                 component="div"
-                sx={{ mt: 3, mb:1, pl: 4, pr: 4 }}
+                sx={{ mt: 2, mb:1, pl: 4, pr: 4 }}
                 noValidate={true}
                 autoComplete={"off"}
             >
@@ -162,7 +163,7 @@ const Profile = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
 
             <BoxComponent
                 component="div"
-                sx={{ mt: 1, mb:3, pl: 4, pr: 4 }}
+                sx={{ mt: 2, mb:3, pl: 4, pr: 4 }}
                 noValidate={true}
                 autoComplete={"off"}
             > 

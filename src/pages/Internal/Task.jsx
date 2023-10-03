@@ -42,12 +42,12 @@ const Task = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
             data.id = params.id;
         }
         await saveTask(firebaseApp, data);
-        navigate('/'); // Navegue de volta para a página inicial após a atualização
+        navigate('/');
     }
 
     return (
         <>
-            <TopComponent hasMenu={false} hasArrowBack={true} hasImage={true} title={`Nova Task`} subtitle={'Crie sua tarefa...'}/>
+            <TopComponent hasMenu={false} hasArrowBack={true} hasImage={false} title={`Nova Task`} subtitle={'Crie sua tarefa...'}/>
             <BoxComponent
                 component="div"
                 sx={{ pl: 4, pr: 4, marginTop: 16 }}

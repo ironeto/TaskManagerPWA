@@ -52,7 +52,7 @@ const Settings = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
 
 
   return <>
-  <TopComponent hasMenu={true} hasImage={true} title={`Configure seu App`} subtitle={'Organize suas ideias...'}/>
+  <TopComponent hasImage={true} title={`Configurações`} subtitle={'Configure seu App...'}/>
   {
     <Container component="main" maxWidth="xs">
         <Select
