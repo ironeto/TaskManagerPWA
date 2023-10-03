@@ -1,12 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { TypographyComponent } from "../../"
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
-const Menu = ({ hasMenu, hasArrowBack, pageName }) => {
+const Menu = ({ hasMenu, hasArrowBack, title }) => {
   const navigate = useNavigate();
 
   const handleGoBack = () => {
@@ -14,7 +14,7 @@ const Menu = ({ hasMenu, hasArrowBack, pageName }) => {
   };
 
   const arrowBack = (
-    <div style={{ position: 'absolute', left: 10, top: 0 }}>
+    <div style={{ position: 'absolute', left: 10 }}>
       <IconButton
         edge="start"
         color="inherit"
@@ -32,16 +32,18 @@ const Menu = ({ hasMenu, hasArrowBack, pageName }) => {
         <AppBar position="static" color='black'>
           <Toolbar>
             {hasArrowBack && arrowBack}
-            {pageName}
+            <TypographyComponent variant="h1" component="h1" sx={{
+                fontSize: "2rem",
+                marginLeft: "50px",
+            }}>
+                {title}
+            </TypographyComponent>
           </Toolbar>
         </AppBar>
       )}
       {(!hasMenu && hasArrowBack) && (
         <>
           {arrowBack}
-          <div style={{ marginLeft: '32px' }}> {/* Add margin to push down TypographyComponent */}
-            {pageName}
-          </div>
         </>
       )}
     </>

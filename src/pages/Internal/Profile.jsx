@@ -4,7 +4,7 @@ import { _updateProfile, loadUser, verifyLogin } from "../../utils/auth";
 import { AvatarComponent, BoxComponent, ButtonComponent, FabComponent, StackComponent, TextFieldComponent, TopMenuComponent } from "../../components";
 import profile from '../../assets/profile.jpeg';
 import { Button, InputAdornment } from "@mui/material";
-import { AccountCircleOutlined, CameraAlt } from "@material-ui/icons";
+import { AccountCircleOutlined, CameraAlt, CakeOutlined, WorkOutline } from "@material-ui/icons";
 import Webcam from 'react-webcam';
 import { set } from "firebase/database";
 import { TopComponent } from '../../components';
@@ -131,7 +131,7 @@ const Profile = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
                     InputProps={{
                         startAdornment: (
                             <InputAdornment position="start">
-                                <AccountCircleOutlined style={{
+                                <CakeOutlined style={{
                                     color: "#333"
                                 }}/>
                             </InputAdornment>
@@ -150,7 +150,7 @@ const Profile = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
                     InputProps={{
                         startAdornment: (
                             <InputAdornment position="start">
-                                <AccountCircleOutlined style={{
+                                <WorkOutline style={{
                                     color: "#333"
                                 }}/>
                             </InputAdornment>

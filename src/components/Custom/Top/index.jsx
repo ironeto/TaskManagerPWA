@@ -4,14 +4,18 @@ import logo from '../../../assets/logo/logo.png';
 const Top = ({ title, subtitle, hasMenu, hasArrowBack, hasImage, hasBubble }) => {
     return (
         <BoxComponent>
-            <TopMenuComponent hasMenu={hasMenu} hasArrowBack={hasArrowBack} hasImage={hasImage}/>
-            <TypographyComponent variant="h1" component="h1" sx={{
-                fontSize: "3rem",
-                marginLeft: !hasMenu && hasArrowBack ? "50px" : "16px",
-                marginTop: "16px"
-            }}>
-                {title}
-            </TypographyComponent>
+            <TopMenuComponent hasMenu={hasMenu} hasArrowBack={hasArrowBack} hasImage={hasImage} title={title}/>
+
+            {!hasMenu && (
+                <TypographyComponent variant="h1" component="h1" sx={{
+                    fontSize: "3rem",
+                    marginLeft: !hasMenu && hasArrowBack ? "50px" : "16px",
+                    marginTop: "16px"
+                }}>
+                    {title}
+                </TypographyComponent>
+            )}
+
             <TypographyComponent variant="h6" component="h6" sx={{ marginLeft: !hasMenu && hasArrowBack ? "57px" : "25px" }}>
                 {subtitle}
             </TypographyComponent>

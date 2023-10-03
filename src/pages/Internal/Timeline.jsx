@@ -12,7 +12,7 @@ const Timeline = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
     }, [])
      
     return <>
-        <TopComponent hasMenu={true} hasImage={true} title={`Agosto 2023`} subtitle={'Organize suas ideias!'}/>
+        <TopComponent hasMenu={true} hasArrowBack={true} hasImage={true} title={`Calendário`}/>
     </>
 }
 
