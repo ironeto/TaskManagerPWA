@@ -46,14 +46,13 @@ export class DataModel{
             }
         }
 
-        debugger;
         if(saveLocal){
             await this.createLocal(data);
         }
     }
 
     async update(data, id, locais, saveLocal=true){
-        debugger;
+        
         if(locais){
             for(let local of locais){
                 const keyLocal = local.replace("Local", "")
@@ -87,7 +86,7 @@ export class DataModel{
     }
 
     async delete(id) {
-        debugger;
+
         await this.deleteLocal(id);
       
         // Use set with null to delete data in Firebase Realtime Database

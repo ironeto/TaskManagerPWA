@@ -98,7 +98,7 @@ const Task = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
         noValidate={true}
         autoComplete={'off'}
       >
-        <TextFieldComponent variant="standard" fullWidth={true} label="Dia" value={day} type="text" onChange={(e) => setDay(e.target.value)}/>
+        <TextFieldComponent variant="standard" fullWidth={true} label="Dia" value={day} type="date" onChange={(e) => setDay(e.target.value)}/>
       </BoxComponent>
       <BoxComponent
         component="div"
@@ -106,7 +106,7 @@ const Task = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
         noValidate={true}
         autoComplete={'off'}
       >
-        <TextFieldComponent variant="standard" fullWidth={true} label="Hora Inicio" value={hour} type="text" onChange={(e) => setHour(e.target.value)}/>
+        <TextFieldComponent variant="standard" fullWidth={true} label="Hora Inicio" value={hour} type="time" onChange={(e) => setHour(e.target.value)}/>
       </BoxComponent>
       <BoxComponent
         component="div"
@@ -114,7 +114,7 @@ const Task = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
         noValidate={true}
         autoComplete={'off'}
       >
-        <TextFieldComponent variant="standard" fullWidth={true} label="Hora Fim" value={hourEnd} type="text" onChange={(e) => setHourEnd(e.target.value)}/>
+        <TextFieldComponent variant="standard" fullWidth={true} label="Hora Fim" value={hourEnd} type="time" onChange={(e) => setHourEnd(e.target.value)}/>
       </BoxComponent>
       <BoxComponent
         component="div"
