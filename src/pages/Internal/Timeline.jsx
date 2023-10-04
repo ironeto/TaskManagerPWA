@@ -52,34 +52,22 @@ const Timeline = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
           open: false,
           color: "info", // info | success | warning | error
           severity: "info", // info | success | warning | error
-          message: "🚀 Let's start with awesome react-mui-scheduler 🔥 🔥 🔥",
+          message: "Task Calendar",
           showActionButton: false,
           showNotification: false,
           delay: 1500
         },
         toolbarProps: {
           showSearchBar: true,
-          showSwitchModeButtons: true,
-          showDatePicker: true
+          showSwitchModeButtons: false,
+          showDatePicker: false
         }
       });
-        
-      const handleCellClick = (event, row, day) => {
-        // Do something...
-      };
-    
+           
       const handleEventClick = (event, item) => {
-        // Do something...
+        navigate(`/task/${item.id}`);
       };
-    
-      const handleEventsChange = (item) => {
-        // Do something...
-      };
-    
-      const handleAlertCloseButtonClicked = (item) => {
-        // Do something...
-      };
-
+        
     useEffect(() => {
         setCurrentPath(window.location.pathname)
         verifyLogin(loggoutRoutes, window.location.pathname, navigate, firebaseApp)
@@ -88,16 +76,13 @@ const Timeline = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
     return <>
         <TopComponent hasMenu={true} hasArrowBack={true} hasImage={false} title={`Calendário`}/>
         <Scheduler
-      locale="fr"
+      locale="en"
       events={tasks}
       legacyStyle={false}
       options={state?.options}
       alertProps={state?.alertProps}
       toolbarProps={state?.toolbarProps}
-      onEventsChange={handleEventsChange}
-      onCellClick={handleCellClick}
       onTaskClick={handleEventClick}
-      onAlertCloseButtonClicked={handleAlertCloseButtonClicked}
     />
     </>
 }

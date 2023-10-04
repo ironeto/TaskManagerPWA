@@ -46,12 +46,14 @@ export class DataModel{
             }
         }
 
+        debugger;
         if(saveLocal){
             await this.createLocal(data);
         }
     }
 
     async update(data, id, locais, saveLocal=true){
+        debugger;
         if(locais){
             for(let local of locais){
                 const keyLocal = local.replace("Local", "")
@@ -60,7 +62,7 @@ export class DataModel{
             }
         }
         if(saveLocal){
-            await this.createLocal(data);
+            await this.updateLocal(data);
         }
 
         try{
@@ -80,9 +82,18 @@ export class DataModel{
         }
     }
 
-    async delete(id){
-        ref(this.realtimeDb, `${this.model}/` + id).remove()
+    async deleteLocal(id){
+        return await this.getDbTable(this.databaseName).where('id').equals(id).delete();
     }
+
+    async delete(id) {
+        debugger;
+        await this.deleteLocal(id);
+      
+        // Use set with null to delete data in Firebase Realtime Database
+        await set(ref(this.realtimeDb, `${this.model}/` + id), null);
+      }
+      
 
     async getLocal(condition=null){
         let result = null;
@@ -94,10 +105,6 @@ export class DataModel{
             return result;
         }
         return await this.getDbTable(this.databaseName).toArray();
-    }
-
-    async deleteLocal(condition){
-        return await this.getDbTable(this.databaseName).where(condition).delete();
     }
 
     async updateLocal(id, data){
