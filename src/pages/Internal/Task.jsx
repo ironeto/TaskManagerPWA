@@ -98,7 +98,7 @@ const Task = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
         noValidate={true}
         autoComplete={'off'}
       >
-        <TextFieldComponent variant="standard" fullWidth={true} label="Dia" value={day} type="date" onChange={(e) => setDay(e.target.value)}/>
+        <TextFieldComponent variant="standard" fullWidth={true} label="" value={day} type="date" onChange={(e) => setDay(e.target.value)}/>
       </BoxComponent>
       <BoxComponent
         component="div"
