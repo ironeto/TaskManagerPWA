@@ -12,7 +12,6 @@ const Timeline = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
     const dataModelUser = new DataModel('user', firebaseApp, 'user', 'user');
 
     const listTasks = async () => {
-        debugger;
         const response = await getTasks(firebaseApp);
         const user = await dataModelUser.getLocal({ synced: false });
         const tasksCalendar = response.map((task, index) => {
@@ -23,7 +22,7 @@ const Timeline = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
                 user: task.description,
                 color: "#f28f6a",
                 startHour: task.hour,
-                endHour: "10:00 AM",
+                endHour: task.hourEnd,
                 date: task.day,
                 createdBy: user.displayName
               }

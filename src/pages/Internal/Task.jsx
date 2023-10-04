@@ -10,6 +10,7 @@ const Task = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
     const [title, setTitle] = useState('');
     const [day, setDay] = useState('');
     const [hour, setHour] = useState('');
+    const [hourEnd, setHourEnd] = useState('');
     const [category, setCategory] = useState('');
     const [description, setDescription] = useState('');
 
@@ -18,6 +19,7 @@ const Task = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
         setTitle(task.title);
         setDay(task.day);
         setHour(task.hour);
+        setHourEnd(task.hourEnd);
         setCategory(task.category);
         setDescription(task.description);
     }
@@ -35,6 +37,7 @@ const Task = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
             title,
             day,
             hour,
+            hourEnd,
             category,
             description
         };
@@ -58,7 +61,7 @@ const Task = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
             </BoxComponent>
             <BoxComponent
                 component="div"
-                sx={{ pl: 4, pr: 4, marginTop: 4, width: 'calc(50% - 64px)', float: 'left' }}
+                sx={{ pl: 4, pr: 4, marginTop: 4, width: 'calc(100% - 64px)', float: 'left' }}
                 noValidate={true}
                 autoComplete={"off"}
             >
@@ -70,7 +73,15 @@ const Task = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
                 noValidate={true}
                 autoComplete={"off"}
             >
-                <TextFieldComponent variant="standard" fullWidth={true} label="Hora" value={hour} type="text" onChange={(e) => setHour(e.target.value)}/>
+                <TextFieldComponent variant="standard" fullWidth={true} label="Hora Inicio" value={hour} type="text" onChange={(e) => setHour(e.target.value)}/>
+            </BoxComponent>
+            <BoxComponent
+                component="div"
+                sx={{ pl: 4, pr: 4, marginTop: 4, width: 'calc(50% - 64px)', float: 'left' }}
+                noValidate={true}
+                autoComplete={"off"}
+            >
+                <TextFieldComponent variant="standard" fullWidth={true} label="Hora Fim" value={hourEnd} type="text" onChange={(e) => setHourEnd(e.target.value)}/>
             </BoxComponent>
             <BoxComponent
                 component="div"
@@ -80,6 +91,7 @@ const Task = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
             >
                 <TextFieldComponent variant="standard" fullWidth={true} label="Categoria" value={category} type="text" onChange={(e) => setCategory(e.target.value)}/>
             </BoxComponent>
+            
             <BoxComponent
                 component="div"
                 sx={{ pl: 4, pr: 4, marginTop: 4, width: 'calc(100% - 64px)', float: 'left' }}
