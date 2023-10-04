@@ -51,15 +51,18 @@ const _updateProfile = async (firebaseApp, data) => {
     data.uid = user.uid;
     data.photoURLLocal = data.photoURL
 
-    if(navigator.onLine){
-        data.photoURL = await convertB64ParaUrl(firebaseApp, data.photoURL, user.uid);
-        const _user = getAuth(firebaseApp).currentUser;
-        if(_user){
-            await updateProfile(_user, data);
+    if(data.photoURL){
+        if(navigator.onLine){
+            data.photoURL = await convertB64ParaUrl(firebaseApp, data.photoURL, user.uid);
+            const _user = getAuth(firebaseApp).currentUser;
+            if(_user){
+                await updateProfile(_user, data);
+            }
+        }else{
+            data.synced = false;
         }
-    }else{
-        data.synced = false;
     }
+    
     const dataModel = new DataModel('user', firebaseApp);
     dataModel.update(data, user.uid, ['photoURLLocal']);
 }

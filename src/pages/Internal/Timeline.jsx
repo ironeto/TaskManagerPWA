@@ -19,7 +19,7 @@ const Timeline = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
                 id: task.id,
                 label: task.title,
                 groupLabel: task.category,
-                user: task.description,
+                user: user.displayName,
                 color: "#f28f6a",
                 startHour: task.hour,
                 endHour: task.hourEnd,
