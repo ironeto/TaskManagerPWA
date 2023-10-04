@@ -3,7 +3,6 @@ import { Suspense, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { Loading, Menu } from './components';
 import routes from './routes';
-import { ThemeProvider } from "./utils/themeContext";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { sync } from './utils/sync';
@@ -38,8 +37,7 @@ function App() {
     sync(firebaseApp);
   }, [currentPath])
 
-  return<ThemeProvider>
-              <Router>
+  return   <Router>
                 <Suspense fallback={<Loading/>}>
                   <Routes>
                     {
@@ -53,8 +51,7 @@ function App() {
                 { !routesWithoutMenu.includes(currentPath) ? 
                   <Menu routes={routes} currentPath={currentPath}/> : null
                 }
-            </Router>
-        </ThemeProvider>;
+            </Router>;
 }
 
 export default App;

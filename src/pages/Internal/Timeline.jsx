@@ -75,15 +75,17 @@ const Timeline = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
      
     return <>
         <TopComponent hasMenu={true} hasArrowBack={true} hasImage={false} title={`Calendário`}/>
-        <Scheduler
-      locale="en"
-      events={tasks}
-      legacyStyle={false}
-      options={state?.options}
-      alertProps={state?.alertProps}
-      toolbarProps={state?.toolbarProps}
-      onTaskClick={handleEventClick}
-    />
+        <div style={{ marginTop: '20px' }}> {/* Add margin top here */}
+      <Scheduler
+        locale="en"
+        events={tasks}
+        legacyStyle={false}
+        options={state?.options}
+        alertProps={state?.alertProps}
+        toolbarProps={state?.toolbarProps}
+        onTaskClick={handleEventClick}
+      />
+    </div>
     </>
 }
 
