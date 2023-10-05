@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { verifyLogin } from "../../utils/auth";
 import { TopComponent } from "../../components";
-import Scheduler from "react-mui-scheduler";
 import { getTasks } from '../../utils/task';
 import { DataModel } from "../../data/datamodel";
 import { Calendar, momentLocalizer } from 'react-big-calendar'
