@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { verifyLogin } from '../../utils/auth';
-import { TopComponent } from '../../components';
+import { TopComponent, TypographyComponent, BoxComponent } from '../../components';
 import { getTasks } from '../../utils/task';
 import {
   ListItem,
@@ -14,7 +14,6 @@ import { DataModel } from "../../data/datamodel";
 
 const Home = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState('');
   const [tasks, setTasks] = useState([]);
 
   const listTasks = async () => {    
@@ -44,7 +43,15 @@ const Home = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
         <ul style={{ listStyleType: 'none', padding: 0 }}>
           {tasks.map((task, index) => (
             <ListItem key={index} style={{ marginBottom: '16px', borderBottom: '1px solid #ccc', paddingBottom: '8px' }}>
-              <h1 style={{ fontSize: '18px', color: task.concluded ? 'blue' : 'red' }}>{task.title}</h1>
+            <BoxComponent>
+            <TypographyComponent variant="h1" component="h1" sx={{fontSize: "1.5rem",marginTop: "16px"}}>
+                    {task.title}
+            </TypographyComponent>
+
+            <TypographyComponent variant="h6" component="h6" sx={{fontSize: "0.5rem",marginLeft: "16px", color:task.concluded ? 'blue !important' : 'red !important'}}>
+                {task.concluded ? 'Concluída' : 'Aberta'}
+            </TypographyComponent>
+            </BoxComponent>
               <ListItemSecondaryAction>
                 <Link to={`/task/${task.id}`}>
                   <IconButton edge="end" aria-label="Editar">
