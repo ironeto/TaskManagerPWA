@@ -273,6 +273,7 @@ const Task = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
         noValidate={true}
         autoComplete={'off'}
       >
+
         <TextFieldComponent
           variant="standard"
           fullWidth={true}
@@ -287,8 +288,24 @@ const Task = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
             {categoryError}
           </Typography>
         )}
+        </BoxComponent>
+
+        <BoxComponent
+        component="div"
+        sx={{
+          pl: 4,
+          pr: 4,
+          marginTop: 4,
+          width: 'calc(100% - 64px)',
+          float: 'left',
+        }}
+        noValidate={true}
+        autoComplete={'off'}
+      >
+        <TextFieldComponent rows={4} multiline variant="standard" fullWidth={true} label="Descrição" InputLabelProps={{ shrink: true }} value={description} type="text" onChange={(e) => setDescription(e.target.value)}/>
       </BoxComponent>
-      {/* ... (other form components) */}
+      
+
       <BoxComponent
         component="div"
         sx={{

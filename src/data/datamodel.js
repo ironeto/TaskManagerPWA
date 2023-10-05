@@ -61,7 +61,7 @@ export class DataModel{
             }
         }
         if(saveLocal){
-            await this.updateLocal(data);
+            await this.updateLocal(id, data);
         }
 
         try{
@@ -124,7 +124,7 @@ export class DataModel{
             table.clear();
           }
         }
-      }
+    }
       
 
     async createLocal(data, id=null){

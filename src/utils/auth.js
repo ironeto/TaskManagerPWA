@@ -89,11 +89,13 @@ const saveLogin = (firebaseApp, data) => {
 
 const login = async (firebaseApp, data, navigate, setShowResendEmail) => {
     try{
+        debugger;
         const auth = getAuth(firebaseApp);
         const response = await signInWithEmailAndPassword(auth, data.email, data.password);
         const {email, displayName, emailVerified, photoURL, uid, accessToken} = response.user;
 
         if(emailVerified){
+            debugger;
             saveLogin(firebaseApp, {email, displayName, photoURL, uid, accessToken});
             updateUserStatus(firebaseApp, uid)
 
@@ -154,7 +156,7 @@ const register = async (firebaseApp, data, navigate) => {
 
 const logout = async (firebaseApp, navigate) => {
     const dataModel = new DataModel(null, firebaseApp);
-    dataModel.clearDatabase(['user']);
+    dataModel.clearDatabase(['user','tasks']);
 
     navigate('/login');
 }
