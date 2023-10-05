@@ -13,18 +13,18 @@ const Timeline = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
 
     const listTasks = async () => {
         const response = await getTasks(firebaseApp);
-        const user = await dataModelUser.getLocal({ synced: false });
+        const user = await dataModelUser.getLocal({ synced: true });
         const tasksCalendar = response.map((task, index) => {
             return {
                 id: task.id,
                 label: task.title,
                 groupLabel: task.category,
-                user: user.displayName,
+                user: user[0].email,
                 color: "#f28f6a",
                 startHour: task.hour,
                 endHour: task.hourEnd,
                 date: task.day,
-                createdBy: user.displayName
+                createdBy: user[0].email
               }
         });
 

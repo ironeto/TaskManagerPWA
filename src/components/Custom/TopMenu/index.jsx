@@ -29,7 +29,7 @@ const Menu = ({ hasMenu, hasArrowBack, title }) => {
   return (
     <>
       {hasMenu && (
-        <AppBar position="static" color='black'>
+        <AppBar position="static" color='default'>
           <Toolbar>
             {hasArrowBack && arrowBack}
             <TypographyComponent variant="h1" component="h1" sx={{
