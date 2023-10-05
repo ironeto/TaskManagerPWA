@@ -8,15 +8,15 @@ const Top = ({ title, subtitle, hasMenu, hasArrowBack, hasImage, hasBubble }) =>
 
             {!hasMenu && (
                 <TypographyComponent variant="h1" component="h1" sx={{
-                    fontSize: "3rem",
-                    marginLeft: !hasMenu && hasArrowBack ? "50px" : "16px",
+                    fontSize: "3rem !important",
+                    marginLeft: !hasMenu && hasArrowBack ? "50px !important" : "16px !important",
                     marginTop: "16px"
                 }}>
                     {title}
                 </TypographyComponent>
             )}
 
-            <TypographyComponent variant="h6" component="h6" sx={{ marginLeft: !hasMenu && hasArrowBack ? "57px" : "25px" }}>
+            <TypographyComponent variant="h6" component="h6" sx={{ marginLeft: !hasMenu && hasArrowBack ? "57px !important" : "25px !important" }}>
                 {subtitle}
             </TypographyComponent>
             {hasImage && (
